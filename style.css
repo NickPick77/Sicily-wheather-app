@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+header{
+    background: blue;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+h1{
+    color: white ;
+}
+section{
+    display: flex;
+}
+.cards-wrapper{
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+.cards-wrapper > div {
+    width: 300px;
+    display: flex;
+    border:  2px red solid;
+}
+
