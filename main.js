@@ -2,16 +2,37 @@ import { query, queryAll, getMeteoData, createCard } from "./utils.js";
 //https://cors-anywhere.herokuapp.com/
 //CHANGE BACKGROUND DEPEND ON WEATHER
 const changeBackground = () => {
-  const val = query(".main-weath").textContent;
+  const val = query(".Weather").textContent;
   const Div = queryAll(".card-container")
   //console.log(val);
   Div.forEach(()=>{
   switch (val) {
-    case "Clouds":
-      Div.classList.add("clouds");
+    case "clear sky":
+      Div.classList.add("clear-sky");
       break;
-    case "Clear":
-      Div.classList.add("clear");
+    case "few clouds":
+      Div.classList.add("few-clouds");
+      break;
+    case "scattered clouds":
+      Div.classList.add("scattered-clouds");
+      break;
+    case "overcast clouds":
+      Div.classList.add("broken-clouds");
+      break;
+    case "shower rain":
+      Div.classList.add("shower-rain");
+      break;
+    case "rain":
+      Div.classList.add("rain");
+      break;
+    case "thunderstorm":
+      Div.classList.add("thunderstorm");
+      break;
+    case "snow":
+      Div.classList.add("snow");
+      break;
+    case "mist":
+      Div.classList.add("mist");
       break;
     default:
       break;
@@ -136,7 +157,8 @@ getMeteoData(38.015839, 12.51077).then((resultAPI) => {
           cityName
       )
   })
-})
+}).then(() => changeBackground())
+
 const selectEl = query(".cities")
 
 
