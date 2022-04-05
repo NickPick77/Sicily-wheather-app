@@ -28,6 +28,7 @@ const createCard = (main, desc, icon) => {
     const divEl = create("div");
             divEl.classList.add("card-container");
     const h2El = create("h2");
+            h2El.classList.add("main-weath")
             h2El.textContent = main;
     const parWeathEl = create("p");
             parWeathEl.classList.add("Weather");
@@ -41,7 +42,21 @@ const createCard = (main, desc, icon) => {
 }
 //"lon": 13.35976,
 //"lat": 38.115822 palermo
-
+const changeBackground = () => {
+  const val = query(".main-weath").textContent;
+  const Div = query(".card-container")
+  console.log(val);
+  switch (val) {
+    case "Clouds":
+      console.log(Div)
+      Div.classList.add("grey");
+      
+      break;
+  
+    default:
+      break;
+  }
+}
 getMeteoData(38.115822, 13.35976).then((resultAPI) => {
   const result = resultAPI.weather
   console.log(result)
@@ -53,5 +68,6 @@ getMeteoData(38.115822, 13.35976).then((resultAPI) => {
           weather.icon
       )
   })
-}); 
+}).then(()=> changeBackground());
+; 
 //console.log(getMeteoData(38.115822, 13.35976))
