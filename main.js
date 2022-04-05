@@ -3,36 +3,38 @@ import { query, queryAll, getMeteoData, createCard } from "./utils.js";
 //CHANGE BACKGROUND DEPEND ON WEATHER
 const changeBackground = () => {
   const val = query(".Weather").textContent;
-  const Div = queryAll(".card-container")
+  const Div = queryAll(".card-container");
+  const DivEl = query(".card-container")
   //console.log(val);
-  Div.forEach(()=>{
+  Div.forEach((element)=>{
+    console.log(element);
   switch (val) {
     case "clear sky":
-      Div.classList.add("clear-sky");
+      DivEl.classList.add("clear-sky");
       break;
     case "few clouds":
-      Div.classList.add("few-clouds");
+      DivEl.classList.add("few-clouds");
       break;
     case "scattered clouds":
-      Div.classList.add("scattered-clouds");
+      DivEl.classList.add("scattered-clouds");
       break;
     case "overcast clouds":
-      Div.classList.add("broken-clouds");
+      DivEl.classList.add("broken-clouds");
       break;
     case "shower rain":
-      Div.classList.add("shower-rain");
+      DivEl.classList.add("shower-rain");
       break;
     case "rain":
-      Div.classList.add("rain");
+      DivEl.classList.add("rain");
       break;
     case "thunderstorm":
-      Div.classList.add("thunderstorm");
+      DivEl.classList.add("thunderstorm");
       break;
     case "snow":
-      Div.classList.add("snow");
+      DivEl.classList.add("snow");
       break;
     case "mist":
-      Div.classList.add("mist");
+      DivEl.classList.add("mist");
       break;
     default:
       break;
