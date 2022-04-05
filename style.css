@@ -12,11 +12,18 @@ header{
     margin-bottom: 20px;
     text-align: center;
 }
-h1{
+header > h1{
     color: white ;
 }
 section{
     display: flex;
+}
+.clouds{
+    background: gray;
+}
+.clear{
+    background: blue;
+
 }
 .cards-wrapper{
     flex-wrap: wrap;
