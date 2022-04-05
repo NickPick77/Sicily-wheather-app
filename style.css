@@ -1,29 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Nunito', sans-serif;
 }
 html{
     scroll-behavior: smooth;
 }
 header{
     background: blue;
-    padding: 20px 0;
+    padding: 15px 0;
     margin-bottom: 20px;
     text-align: center;
 }
+header > img{
+    height: 50px;
+}
 header > h1{
+    display: inline-block;
     color: white ;
 }
 section{
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.clouds{
-    background: gray;
+section > label{
+    font-size: 24px;
+    line-height: 34px;
+    margin-bottom: 10px;
+
 }
-.clear{
+.clear-sky{
     background: blue;
 
+}
+.few-clouds{
+    background: rgb(167, 160, 160);
+}
+.scattered-clouds{
+    background: rgb(79, 79, 79);
+
+}
+.broken-clouds{
+    background: rgb(43, 43, 43);
+}
+.shower-rain{
+    background: rgb(53, 57, 108);
+}
+.rain{
+    background: rgb(40, 104, 141);
+}
+.thunderstorm{
+    background: rgb(199, 196, 19);
+}
+.snow{
+    background: rgb(241, 242, 238);
+}
+.mist{
+    background: rgb(91, 3, 82);
+}
+.cities{
+    width: 250px;
+    height: 35px;
+    padding-left: 5px;
+    font-size: 18px;
+    margin-bottom: 20px;
 }
 .cards-wrapper{
     flex-wrap: wrap;
