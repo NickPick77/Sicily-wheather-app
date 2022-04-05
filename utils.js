@@ -3,9 +3,9 @@ const create = (selector) => document.createElement(selector);
 const query = (selector) => document.querySelector(selector);
 const queryAll = (selector) => document.querySelectorAll(selector);
 //FETCH CALL
-/**/
+/*https://cors-anywhere.herokuapp.com/*/
 const getMeteoData = async (lat, lon) => {
-    const res = await fetch(`https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=2e5a106969b36b69f352ba20721784e1&lang=en`, {
+    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=2e5a106969b36b69f352ba20721784e1&lang=en`, {
       method: "GET",
       mode: "cors",
       headers: {
