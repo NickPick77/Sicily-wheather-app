@@ -5,11 +5,7 @@ const queryAll = (selector) => document.querySelectorAll(selector);
 //FETCH CALL
 /*https://cors-anywhere.herokuapp.com/*/
 const getMeteoData = async (lat, lon) => {
-<<<<<<< HEAD
-    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=2b9d22b5a41dc852a89e0737214e4502&lang=en`, {
-=======
     const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=2e5a106969b36b69f352ba20721784e1&lang=en`, {
->>>>>>> 857560c3046a56960e249d6eb6037353fc5fc23c
       method: "GET",
       //headers: {
       //  "Content-Type": "application/json", 
