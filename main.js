@@ -1,6 +1,12 @@
-import { Palermo, Agrigento, Caltanissetta, Catania, Enna, Messina, Ragusa, Siracusa, Trapani } from "./data.js";
-import { query, queryAll, getMeteoData, createCard } from "./utils.js";
+import { Palermo, Agrigento, Caltanissetta, Catania, Enna, Messina, Ragusa, Siracusa, Trapani, latLonValue } from "./data.js";
+import { query, queryAll, getMeteoData, createCard, createInput, createSelect, createOption } from "./utils.js";
+console.log(latLonValue);
 // ON PAGE LOAD//
+createInput();
+createSelect();
+latLonValue.map((result) => {
+  createOption(result.value, result.name);
+})
 //PALERMO CARD
 getMeteoData(38.115822, 13.35976).then((resultAPI) => { //Ask data from api using Latitude e Longitude then create a card with&for data
   const APIdata = resultAPI.weather;
@@ -16,7 +22,7 @@ getMeteoData(38.115822, 13.35976).then((resultAPI) => { //Ask data from api usin
       )
       
   })
-})/*.catch((reject)=> { //cacth error when the promise get rejected
+}).catch((reject)=> { //cacth error when the promise get rejected
   console.log(reject)
   console.log( Palermo.weather[0].main)
   const weatherColor = Palermo.weather[0].description
@@ -28,7 +34,7 @@ getMeteoData(38.115822, 13.35976).then((resultAPI) => { //Ask data from api usin
     Palermo.name, //Value for city name
     weatherColor.split(" ").join("-") //Value for classList.add(color) --> to change class of div and have a dinamic background
   ) 
-});*/
+});
 //AGRIGENTO CARD
 getMeteoData(37.320839, 13.58876).then((resultAPI) => {
   const APIdata = resultAPI.weather;
@@ -45,9 +51,7 @@ getMeteoData(37.320839, 13.58876).then((resultAPI) => {
   })
 }).catch((reject)=> {
   console.log(reject)
-  console.log( Agrigento.weather[0].main)
-  const weatherColor = Agrigento.weather[0].description
-  console.log(weatherColor)
+  const weatherColor = Agrigento.weather[0].description;
   createCard(
     Agrigento.weather[0].main, // Value for main weather
     Agrigento.weather[0].description, //Value for weather description
@@ -70,10 +74,8 @@ getMeteoData(37.48774, 14.04497).then((resultAPI) => {
           weatherColor
       )
   })
-})/*.catch((reject)=> {
-  console.log(reject)
-  console.log( Caltanissetta.weather[0].main)
-  const weatherColor = Caltanissetta.weather[0].description
+}).catch((reject)=> {
+  const weatherColor = Caltanissetta.weather[0].description;
   weatherColor.split("")
   console.log(weatherColor)
   createCard(
@@ -83,7 +85,7 @@ getMeteoData(37.48774, 14.04497).then((resultAPI) => {
     Caltanissetta.name, //Value for city name
     weatherColor.split(" ").join("-") //Value for classList.add(color) --> to change class of div and have a dinamic background
   ) 
-});*/
+});
 //CATANIA CARD
 getMeteoData(37.502129, 15.08719).then((resultAPI) => {
   const APIdata = resultAPI.weather;
@@ -98,7 +100,7 @@ getMeteoData(37.502129, 15.08719).then((resultAPI) => {
           weatherColor
       )
   })
-})/*.catch((reject)=> {
+}).catch((reject)=> {
   console.log(reject)
   console.log( Catania.weather[0].main)
   const weatherColor = Catania.weather[0].description
@@ -111,7 +113,7 @@ getMeteoData(37.502129, 15.08719).then((resultAPI) => {
     Catania.name, //Value for city name
     weatherColor.split(" ").join("-") //Value for classList.add(color) --> to change class of div and have a dinamic background
   ) 
-});*/
+});
 //ENNA CARD
 getMeteoData (37.558849, 14.28917).then((resultAPI) => {
   const APIdata = resultAPI.weather;
@@ -126,7 +128,7 @@ getMeteoData (37.558849, 14.28917).then((resultAPI) => {
           weatherColor
       )
   })
-})/*.catch((reject)=> {
+}).catch((reject)=> {
   console.log(reject)
   console.log( Enna.weather[0].main)
   const weatherColor = Enna.weather[0].description
@@ -139,7 +141,7 @@ getMeteoData (37.558849, 14.28917).then((resultAPI) => {
     Enna.name, //Value for city name
     weatherColor.split(" ").join("-") //Value for classList.add(color) --> to change class of div and have a dinamic background
   ) 
-});*/
+});
 //MESSINA CARD
 getMeteoData(-22.351311, 30.0396).then((resultAPI) => {
   const APIdata = resultAPI.weather;
@@ -154,7 +156,7 @@ getMeteoData(-22.351311, 30.0396).then((resultAPI) => {
           weatherColor
       )
   })
-})/*.catch((reject)=> {
+}).catch((reject)=> {
   console.log(reject)
   console.log( Messina.weather[0].main)
   const weatherColor = Messina.weather[0].description
@@ -167,7 +169,7 @@ getMeteoData(-22.351311, 30.0396).then((resultAPI) => {
     Messina.name, //Value for city name
     weatherColor.split(" ").join("-") //Value for classList.add(color) --> to change class of div and have a dinamic background
   ) 
-});*/
+});
 //RAGUSA CARD
 getMeteoData(36.928242, 14.71719).then((resultAPI) => {
   const APIdata = resultAPI.weather;
@@ -182,7 +184,7 @@ getMeteoData(36.928242, 14.71719).then((resultAPI) => {
           weatherColor
       )
   })
-})/*.catch((reject)=> {
+}).catch((reject)=> {
   console.log(reject)
   console.log( Ragusa.weather[0].main)
   const weatherColor = Ragusa.weather[0].description
@@ -195,7 +197,7 @@ getMeteoData(36.928242, 14.71719).then((resultAPI) => {
     Ragusa.name, //Value for city name
     weatherColor.split(" ").join("-") //Value for classList.add(color) --> to change class of div and have a dinamic background
   ) 
-});*/
+});
 //SIRACUSA CARD
 getMeteoData(37.085152, 15.273).then((resultAPI) => {
   const APIdata = resultAPI.weather;
@@ -210,7 +212,7 @@ getMeteoData(37.085152, 15.273).then((resultAPI) => {
           weatherColor
       )
   })
-})/*.catch((reject)=> {
+}).catch((reject)=> {
   console.log(reject)
   console.log( Siracusa.weather[0].main)
   const weatherColor = Siracusa.weather[0].description
@@ -223,7 +225,7 @@ getMeteoData(37.085152, 15.273).then((resultAPI) => {
     Siracusa.name, //Value for city name
     weatherColor.split(" ").join("-") //Value for classList.add(color) --> to change class of div and have a dinamic background
   ) 
-});*/
+});
 //TRAPANI CARD
 getMeteoData(38.015839, 12.51077).then((resultAPI) => {
   const APIdata = resultAPI.weather;
@@ -238,25 +240,25 @@ getMeteoData(38.015839, 12.51077).then((resultAPI) => {
           weatherColor
       )
   })
-})//.catch((reject)=> {
-  //console.log(reject)
-  //console.log( Trapani.weather[0].main)
-  //const weatherColor = Trapani.weather[0].description
-  //weatherColor.split("")
-  //console.log(weatherColor)
-  //createCard(
-  //  Trapani.weather[0].main, // Value for main weather
-  //  Trapani.weather[0].description, //Value for weather description
-  //  Trapani.weather[0].icon, //Value for weather icon
-  //  Trapani.name, //Value for city name
-  //  weatherColor.split(" ").join("-") //Value for classList.add(color) --> to change class of div and have a dinamic background
-  //) 
-//});
+}).catch((reject)=> {
+  console.log(reject)
+  console.log( Trapani.weather[0].main)
+  const weatherColor = Trapani.weather[0].description
+  weatherColor.split("")
+  console.log(weatherColor)
+  createCard(
+    Trapani.weather[0].main, // Value for main weather
+    Trapani.weather[0].description, //Value for weather description
+    Trapani.weather[0].icon, //Value for weather icon
+    Trapani.name, //Value for city name
+    weatherColor.split(" ").join("-") //Value for classList.add(color) --> to change class of div and have a dinamic background
+  ) 
+});
 //AT SELECT EVENT//
 const selectEl = query(".cities")
 selectEl.addEventListener("change", () => {
   const selectedOption = selectEl.value
-  if(selectedOption == ""){
+  if(selectedOption == "All"){
     const cardContainer = queryAll(".card-container");
     cardContainer.forEach(element => {
         element.remove();
@@ -398,7 +400,6 @@ selectEl.addEventListener("change", () => {
     })
     }
   else{
-    //const selectEl = query(".cities")
     const cardContainer = queryAll(".card-container");
     cardContainer.forEach(element => {
       element.remove();
