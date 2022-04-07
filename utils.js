@@ -20,7 +20,7 @@ const getMeteoData = async (lat, lon) => {
         }
 };
 const getGeoData = async (city) => {
-        const res = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=2e5a106969b36b69f352ba20721784e1&lang=en`, {
+        const res = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=2e5a106969b36b69f352ba20721784e1&lang=en`, {
                 method: "GET",
         })
         if (res.status >= 200 && res.status <= 299) {
