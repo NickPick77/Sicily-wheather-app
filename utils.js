@@ -39,7 +39,7 @@ const createCard = (main, desc, icon, cityName, color) => {
                 divEl.classList.add("card-container");
                 divEl.classList.add(color);
         const infoDiv = create("div");
-                infoDiv.classList.add("weather-info")
+                infoDiv.classList.add("weather-info");
         const cityh2 = create("h2");
                 cityh2.textContent = cityName;
         const h3El = create("h3");
@@ -51,26 +51,26 @@ const createCard = (main, desc, icon, cityName, color) => {
         const imgEl = create("img");
                 imgEl.classList.add("icon");
                 imgEl.setAttribute("src", `http://openweathermap.org/img/wn/${icon}@2x.png`)
-        infoDiv.append(cityh2, h3El, parWeathEl)
+        infoDiv.append(cityh2, h3El, parWeathEl);
         divEl.append(infoDiv, imgEl);
         query(".cards-wrapper").appendChild(divEl);
 }
 //CREATE SEARCH INPUT 
 const createInput = () => {
         const searchDiv = create("div");
-        searchDiv.classList.add("search-container")
+                searchDiv.classList.add("search-container")
         const searchLabel = create("label");
-        searchLabel.setAttribute("id", "search");
-        searchLabel.textContent = "search city";
+                searchLabel.setAttribute("id", "search");
+                searchLabel.textContent = "Search city";
         const searchInput = create("input");
-        searchInput.classList.add("search");
-        searchInput.setAttribute("id", "search");
-        searchInput.setAttribute("type", "text");
+                searchInput.classList.add("search");
+                searchInput.setAttribute("id", "search");
+                searchInput.setAttribute("type", "text");
         const searchBtn = create("input");
-        searchBtn.classList.add("submit");
-        searchBtn.setAttribute("type", "submit");
-        searchBtn.setAttribute("value", "search");
-        searchDiv.append(searchLabel, searchInput, searchBtn);
+                searchBtn.classList.add("submit");
+                searchBtn.setAttribute("type", "submit");
+                searchBtn.setAttribute("value", "search");
+                searchDiv.append(searchLabel, searchInput, searchBtn);
         query(".form").appendChild(searchDiv);
 }
 //CREATE SELECT
