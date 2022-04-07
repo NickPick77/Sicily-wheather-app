@@ -22,25 +22,62 @@ const getMeteoData = async (lat, lon) => {
 //CREATE CARD FUNCTION
 const createCard = (main, desc, icon, cityName, color) => {
         console.log("color", color, desc)
-    const divEl = create("div");
-            divEl.classList.add("card-container");
-            divEl.classList.add(color);
-    const infoDiv = create("div");
-            infoDiv.classList.add("weather-info")        
-    const cityh2 = create("h2");
-            cityh2.textContent = cityName;
-    const h3El = create("h3");
-            h3El.classList.add("main-weath")
-            h3El.textContent = main;
-    const parWeathEl = create("p");
-            parWeathEl.classList.add("Weather");
-            parWeathEl.textContent = desc;   
-    const imgEl = create("img");
-            imgEl.classList.add("icon");
-            imgEl.setAttribute("src", `http://openweathermap.org/img/wn/${icon}@2x.png`)
-    infoDiv.append(cityh2, h3El, parWeathEl)    
-    divEl.append(infoDiv, imgEl);
-    query(".cards-wrapper").appendChild(divEl);
+        const divEl = create("div");
+                divEl.classList.add("card-container");
+                divEl.classList.add(color);
+        const infoDiv = create("div");
+                infoDiv.classList.add("weather-info")        
+        const cityh2 = create("h2");
+                cityh2.textContent = cityName;
+        const h3El = create("h3");
+                h3El.classList.add("main-weath")
+                h3El.textContent = main;
+        const parWeathEl = create("p");
+                parWeathEl.classList.add("Weather");
+                parWeathEl.textContent = desc;   
+        const imgEl = create("img");
+                imgEl.classList.add("icon");
+                imgEl.setAttribute("src", `http://openweathermap.org/img/wn/${icon}@2x.png`)
+        infoDiv.append(cityh2, h3El, parWeathEl)    
+        divEl.append(infoDiv, imgEl);
+        query(".cards-wrapper").appendChild(divEl);
 }
-
-export { query, queryAll, create, getMeteoData, createCard};
+//CREATE SEARCH INPUT 
+const createInput = () => {
+        const searchDiv = create("div");
+                searchDiv.classList.add("search-container")
+        const searchLabel = create("label");
+                searchLabel.setAttribute("id", "search" );
+                searchLabel.textContent = "search city";
+        const searchInput = create("input");
+                searchInput.setAttribute("id", "search");
+                searchInput.setAttribute("type", "text");
+        const searchBtn = create("input");
+                searchBtn.setAttribute("type", "submit");
+                searchBtn.setAttribute("value", "search");
+        searchDiv.append(searchLabel, searchInput, searchBtn);       
+        query(".form").appendChild(searchDiv);
+}
+//CREATE SELECT
+const createSelect = () => {
+        const divEl = create("div");
+                divEl.classList.add("select-form");
+        const selectLabel = create("label");
+                selectLabel.setAttribute("for", "city");
+                selectLabel.textContent = "Select city";
+        const SelectEl = create("select");
+                SelectEl.classList.add("cities");
+                SelectEl.setAttribute("id", "city");
+        const optgroupEl = create("optgroup");
+                optgroupEl.setAttribute("label", "Sicily's Cities");
+        SelectEl.appendChild(optgroupEl);
+        divEl.append(selectLabel, SelectEl, optgroupEl);
+        query(".form").appendChild(divEl);
+};
+const createOption = (latLon, city) => {
+        const optionEl = create("option");
+                optionEl.setAttribute("value", latLon);
+                optionEl.textContent = city;
+        query(".cities").append(optionEl);
+}
+export { query, queryAll, create, getMeteoData, createCard, createInput, createSelect, createOption };
