@@ -1,4 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+@keyframes pulse {
+    0%   {
+        box-shadow: 0 0 6px  
+    }
+    70%  { 
+        box-shadow: 0 0 12px  
+    }
+    100% { 
+        box-shadow: 0 0 6px  
+    }
+}
 *{
     box-sizing: border-box;
     margin: 0;
@@ -8,9 +19,13 @@
 html{
     scroll-behavior: smooth;
 }
+body{
+    background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);
+}
 header{
-    background: blue;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
     padding: 15px 0;
+    box-shadow: 0 0 12px;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -20,6 +35,7 @@ header > img{
 header > h1{
     display: inline-block;
     color: white ;
+    letter-spacing: 1vmax;
 }
 section{
     display: flex;
@@ -27,36 +43,54 @@ section{
     align-items: center;
     gap: 20px 0 ;
 }
-section > label{
-    font-size: 3vmax;
+label{
+    font-size: 2.5vmax;
     line-height: 3vmax;
-    
+    font-weight: 700;
 }
+
 .clear-sky{
     background: rgb(255,255,255);
     background: linear-gradient(195deg, rgb(110 239 246) 26%, rgba(186,243,255,1) 41%, rgba(129,234,255,1) 50%, rgba(0,212,255,1) 100%);
-    box-shadow: 0 0 20px 1px rgb(129 234 255 / 70%);
+    box-shadow: 0 0 12px 0px rgb(0 0 0 / 23%);
 }
 .few-clouds{
-    background: rgb(167, 160, 160);
+    background: rgb(148,148,148);
+    background: linear-gradient(195deg, rgba(148,148,148,1) 9%, rgba(132,155,160,1) 20%, rgba(116,162,172,1) 27%, rgba(107,166,178,1) 44%, rgba(93,172,188,1) 57%, rgba(0,212,255,1) 100%);
 }
 .scattered-clouds{
-    background: rgb(255,255,255);
-     background: linear-gradient(90deg, rgba(255,255,255,1) 26%, rgba(186,243,255,1) 38%, rgba(129,234,255,1) 53%, rgba(117,166,176,1) 72%, rgba(87,87,87,1) 100%);
-
+    background: rgb(0,0,0);
+    background: linear-gradient(195deg, rgba(0,0,0,1) 0%, rgba(13,43,46,1) 13%, rgba(23,63,66,1) 20%, rgba(42,101,105,1) 34%, rgba(59,136,140,1) 47%, rgba(0,212,255,1) 83%);
+    box-shadow: 0 0 6px rgba(23,63,66,1);
+    animation: pulse 5s ease-in-out infinite;
 }
 .broken-clouds{
-    background: rgb(255,255,255);
-    background: linear-gradient(90deg, rgba(255,255,255,1) 26%, rgba(186,243,255,1) 38%, rgba(129,234,255,1) 53%, rgba(117,166,176,1) 72%, rgba(87,87,87,1) 100%);
-}
+    background: rgb(0,0,0);
+    background: linear-gradient(195deg, rgba(0,0,0,1) 0%, rgba(13,43,46,1) 13%, rgba(23,63,66,1) 20%, rgba(42,101,105,1) 34%, rgba(59,136,140,1) 47%, rgba(0,212,255,1) 83%);
+    box-shadow: 0 0 6px rgba(23,63,66,1);
+    animation: pulse 3s ease-in-out infinite;
+} 
 .shower-rain{
-    background: rgb(53, 57, 108);
+    background: rgb(0,0,0);
+    background: linear-gradient(195deg, rgba(0,0,0,1) 0%, rgba(13,43,46,1) 13%, rgba(23,63,66,1) 20%, rgba(42,101,105,1) 34%, rgba(59,136,140,1) 47%, rgba(0,212,255,1) 83%);
+    box-shadow: 0 0 6px rgba(23,63,66,1);
+    box-shadow: 0 0 12px rgb(17, 139, 158);
+    animation: pulse 0.5s cubic-bezier(0, 1.38, 0.98, 0.02) infinite;
 }
 .rain{
+    background: rgb(0,0,0);
+    background: linear-gradient(195deg, rgba(0,0,0,1) 0%, rgba(13,43,46,1) 13%, rgba(23,63,66,1) 20%, rgba(42,101,105,1) 34%, rgba(59,136,140,1) 47%, rgba(0,212,255,1) 83%);
+    box-shadow: 0 0 6px rgba(23,63,66,1);
     background: rgb(40, 104, 141);
+    animation: pulse 0.3s cubic-bezier(0, 1.38, 0.98, 0.02) infinite;
 }
 .thunderstorm{
+    background: rgb(0,0,0);
+    background: linear-gradient(195deg, rgba(0,0,0,1) 0%, rgba(13,43,46,1) 13%, rgba(23,63,66,1) 20%, rgba(42,101,105,1) 34%, rgba(59,136,140,1) 47%, rgba(0,212,255,1) 83%);
+    box-shadow: 0 0 6px rgba(23,63,66,1);
     background: rgb(199, 196, 19);
+    box-shadow: 0 0 6px yellow;
+    animation: pulse 1s cubic-bezier(0, 1.38, 0.98, 0.02) infinite;
 }
 .snow{
     background: rgb(241, 242, 238);
@@ -64,20 +98,47 @@ section > label{
 .mist{
     background: rgb(91, 3, 82);
 }
-.cities{
-    width: 250px;
+.form{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    align-items: baseline;
+}
+.form > div {
+    display: grid;
+    justify-items: center;
+    row-gap: 10px;
+}
+.cities, .search{
+    width: 30vmax;
     height: 35px;
     padding-left: 5px;
     font-size: 18px;
-    margin-bottom: 20px;
+}
+.submit{
+    font-size: 1.5vmax;
+    width: 15vmax;
+    padding: 10px 0;
+    border-radius: 16px ;
+    background-image: linear-gradient(to right, #02AAB0 0%, #00CDAC  51%, #02AAB0  100%);
+    margin: 10px;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    display: block;
+}
+.submit:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
 }
 .cards-wrapper{
     flex-wrap: wrap;
     justify-content: center;
-
 }
 .cards-wrapper > div {
-    width: 80vw;
+    width: 90vw;
     display: flex;
     justify-content: space-between;
     border-radius: 24px;
@@ -92,6 +153,7 @@ section > label{
     display: flex;
     flex-direction: column;
     padding: 2vh 0 2vh  2vh;
+    color: #fff;
 }
 .weather-info > h2{
     font-size: 4vmax;
@@ -103,23 +165,3 @@ section > label{
     font-size: 2vmax;
 }
 
-
-.btn-grad {background-image: linear-gradient(to right, #16A085 0%, #F4D03F  51%, #16A085  100%)}
-.btn-grad {
-   margin: 10px;
-   padding: 15px 45px;
-   text-align: center;
-   text-transform: uppercase;
-   transition: 0.5s;
-   background-size: 200% auto;
-   color: white;            
-   box-shadow: 0 0 20px #eee;
-   border-radius: 10px;
-   display: block;
- }
-
- .btn-grad:hover {
-   background-position: right center; /* change the direction of the change here */
-   color: #fff;
-   text-decoration: none;
- }
