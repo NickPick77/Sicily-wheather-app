@@ -2,7 +2,7 @@
 const create = (selector) => document.createElement(selector);
 const query = (selector) => document.querySelector(selector);
 const queryAll = (selector) => document.querySelectorAll(selector);
-//FETCH CALL
+//FETCH CALL FOR CITY WEATHER DATA (TEMP, MAIN, DESC, ECC..)
 /*https://cors-anywhere.herokuapp.com/*/
 const getMeteoData = async (lat, lon) => {
         const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=2e5a106969b36b69f352ba20721784e1&lang=en`, {
@@ -14,11 +14,10 @@ const getMeteoData = async (lat, lon) => {
         if (res.status >= 200 && res.status <= 299) {
                 return await res.json();
         } else {
-                const h1El = create("h1");
-                        h1El.textContent = "404 pagina non trovata";
-                        document.body.append(h1El);
+                create404();
         }
 };
+//FETCH CALL FOR CITY GEOLOCALIZATION DATA( LAT, LON, NAME, STATE, ECC.. /NOT WEATHER INFO)
 const getGeoData = async (city) => {
         const res = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=2e5a106969b36b69f352ba20721784e1&lang=en`, {
                 method: "GET",
@@ -99,10 +98,27 @@ const createWrongSearch = (city) => {
         const divEl = create("div");
                 divEl.classList.add("wrong-container")
         const h1El = create("h1");
-                h1El.classList.add("wrong")
-                h1El.textContent = `${city} non è una provincia siciliana`;
-                divEl.appendChild(h1El);
+                h1El.classList.add("wrong-city")
+                h1El.textContent = `${city}`;
+        const h2El = create("h2");
+                h2El.classList.add("wrong-msg")
+                h2El.textContent = "non è una provincia siciliana";
+        const pEl1 = create("p");
+                pEl1.classList.add("info-msg")
+                pEl1.textContent = "Puoi cercare qualsiasi città siciliana oppure usa il selettore per controllare il meteo nelle principali città"
+        const pEl2 = create("p");
+                pEl2.classList.add("info-msg")
+                pEl2.textContent = "oppure"
+        const pEl3 = create("p");
+                pEl3.classList.add("info-msg")
+                pEl3.textContent = "Usa il selettore per controllare il meteo nelle principali città"
+        divEl.append(h1El, h2El, pEl1, pEl2, pEl3);
         query(".cards-wrapper").appendChild(divEl)
+}
+const create404 = () => {
+        const h1El = create("h1");
+                h1El.textContent = "404 pagina non trovata";
+                query(".cards-wrapper").append(h1El);
 }
 
 const removeCards = () =>{
