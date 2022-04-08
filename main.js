@@ -107,11 +107,11 @@ query(".submit").addEventListener("click", () => {
     */
   getGeoData(searchInput.value).then((resultAPI) => {
     
-    console.log(searchInput.value, resultAPI[0])
+    console.log(searchInput.value, resultAPI)
     
-    const stateSentinel = city && city.state === "Sicily" ? true:false //YOU CAN USE THIS TO EXTEND SEARCH TO ENTIRE SICILY OR MODIFY THE VALUE TO WHATEVER STATE YOU WANT
+    const stateSentinel = resultAPI.length >=1 && resultAPI[0].state === "Sicily" ? true:false //YOU CAN USE THIS TO EXTEND SEARCH TO ENTIRE SICILY OR MODIFY THE VALUE TO WHATEVER STATE YOU WANT
                        
-    if (stateSentinel) {
+    if ( stateSentinel ) {
     
       resultAPI.map((city) => {
       
