@@ -6,6 +6,9 @@ createSelect();
 latLonValue.map((result) => {
   createOption(result.latLon, result.name);
 })
+query(".logo").addEventListener("click", () => {
+  window.location.reload()
+})
 //RENDER ALL CARD
 latLonValue.slice(1).map((result) => {
   const coordinate = result.latLon.split(",")
@@ -92,7 +95,7 @@ query(".submit").addEventListener("click", () => {
   finally{
   
   removeCards();
-  const cityNameSentinel =   city && resultAPI[0].name === "Agrigento" ? true:false 
+    /*const cityNameSentinel =   city && resultAPI[0].name === "Agrigento" ? true:false 
     const cityNameSentinel1 =  city && city.name === "Caltanissetta" ? true:false
     const cityNameSentinel2 =  city && city.name === "Catania" ? true:false
     const cityNameSentinel3 =  city && city.name === "Enna" ? true:false
@@ -101,7 +104,7 @@ query(".submit").addEventListener("click", () => {
     const cityNameSentinel6 =  city && city.name === "Ragusa" ? true:false
     const cityNameSentinel7 =  city && city.name === "Syracuse" ? true:false
     const cityNameSentinel8 =  city && city.name === "Trapani" ? true:false 
- 
+    */
   getGeoData(searchInput.value).then((resultAPI) => {
     
     console.log(searchInput.value, resultAPI[0])
