@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap');
 @keyframes pulse {
     0%   {
         box-shadow: 0 0 6px  
@@ -25,7 +25,7 @@ body{
     background: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%) no-repeat;
 }
 header{
-    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    background: linear-gradient(to top, #30cfd0 0%, #330867 100%);
     padding: 15px 0;
     box-shadow: 0 0 12px;
     margin-bottom: 20px;
@@ -38,6 +38,9 @@ header > h1{
     display: inline-block;
     color: white ;
     letter-spacing: 1vmax;
+    font-weight: 200;
+    cursor: pointer;
+    user-select: none;
 }
 section{
     display: flex;
@@ -151,6 +154,12 @@ hr{
     border-radius: 24px;
     position: relative;
 }
+.divisor{
+    border: 0;
+    margin: 20px 0;
+    height: auto;
+    width: 1px; 
+}
 .icon{
     max-width: 200%;
     padding-right: 20px;
@@ -161,12 +170,15 @@ hr{
     flex-direction: column;
     padding: 2vh 0 2vh  2vh;
     color: #fff;
+    
 }
 .weather-info > h2{
     font-size: 4vmax;
+    font-weight: 200;
 }
 .weather-info > h3{
     font-size: 3vmax;
+    font-weight: 200;
 }
 .weather-info > p {
     font-size: 2vmax;
