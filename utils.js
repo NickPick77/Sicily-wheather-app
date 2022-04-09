@@ -66,8 +66,8 @@ const createCard = (main, desc, icon, cityName, color) => {
         const infoDiv = create("div");
                 infoDiv.classList.add("weather-info");
         
-        const hrEl = create("hr");
-                hrEl.classList.add("divisor");
+        /*const hrEl = create("hr");
+                hrEl.classList.add("divisor");*/
         
         const cityh2 = create("h2");
                 cityh2.textContent = cityName;
@@ -86,7 +86,7 @@ const createCard = (main, desc, icon, cityName, color) => {
         
         infoDiv.append(cityh2, h3El, parWeathEl);
         
-        divEl.append(infoDiv, hrEl, imgEl);
+        divEl.append(infoDiv, imgEl);
         
         query(".cards-wrapper").appendChild(divEl);
 
