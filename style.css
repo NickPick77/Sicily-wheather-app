@@ -153,6 +153,7 @@ hr{
 .cards-wrapper{
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 20px;
 }
 .cards-wrapper > div {
     width: 90vw;
